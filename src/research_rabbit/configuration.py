@@ -10,7 +10,8 @@ from dataclasses import dataclass
 class Configuration:
     """The configurable fields for the research assistant."""
     max_web_research_loops: int = 3
-    local_llm: str = "llama3.2"
+    local_llm: str = "llama3.3"
+    local_llm_base_url: str = "http://" + os.environ.get("LLM_HOST", "172.17.1.231") + ":11434"
 
     @classmethod
     def from_runnable_config(

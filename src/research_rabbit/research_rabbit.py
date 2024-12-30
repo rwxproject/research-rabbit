@@ -12,9 +12,8 @@ from research_rabbit.utils import deduplicate_and_format_sources, tavily_search,
 from research_rabbit.state import SummaryState, SummaryStateInput, SummaryStateOutput
 from research_rabbit.prompts import query_writer_instructions, summarizer_instructions, reflection_instructions
 
-# LLM
-llm = ChatOllama(model=Configuration.local_llm, temperature=0)
-llm_json_mode = ChatOllama(model=Configuration.local_llm, temperature=0, format="json")
+llm = ChatOllama(model=Configuration.local_llm, temperature=0, base_url=Configuration.local_llm_base_url)
+llm_json_mode = ChatOllama(model=Configuration.local_llm, temperature=0, base_url=Configuration.local_llm_base_url, format="json")
 
 # Nodes   
 def generate_query(state: SummaryState):
